@@ -308,9 +308,9 @@ function mouseReleased(){
 //===========================================
 function touchEnded(){
 	for(var i = 0; i < seq.length; i++){
-		seq[i].toggleTouch();	
+		seq[i].toggleTouch();
+		seq[i].checkpTouch();
 	}
-	touch == false;
 }
 
 //===========================================
@@ -405,6 +405,12 @@ function Button_Set(num_, y_, r_, color_){
 				this.buttons[i].toggleTouch();
 				this.idle_buttons[i].toggleTouch();
 			}
+		}
+	}
+
+	this.checkpTouch = function(){
+		if((ptouchX > sidebar + this.x_box) && (ptouchX < this.x_box + this.w_box) && (ptouchY > (this.y_box - this.hover_offset)) && (ptouchY < (this.y_box + this.h_box + this.hover_offset))) {
+			select_global = this.index;
 		}
 	}
 }
