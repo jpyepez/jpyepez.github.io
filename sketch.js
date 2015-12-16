@@ -50,9 +50,6 @@ var sidebar;
 var init_width;
 var init_height;
 
-// Touch values
-var touch;
-
 //===========================================
 function preload(){
 	// Load sound files
@@ -70,7 +67,6 @@ function setup(){
 	createCanvas(init_width, init_height);
 	frameRate(60);
 	cursor(HAND);
-	touch = false;
 
 	// Sequencer variables
 	num_ins = 6;
@@ -160,13 +156,6 @@ function draw(){
 	read();
 	update_tempo();
 	update_steps();
-}
-
-//===========================================
-// Check/update touch
-function checkTouch(){
-	if(touchIsDown) touch = true;
-	else touch = false;
 }
 
 //===========================================
@@ -314,6 +303,13 @@ function mouseReleased(){
 	for(var i = 0; i < seq.length; i++){
 		seq[i].toggle();	
 	}
+}
+
+//===========================================
+function touchEnded(){
+	for(var i = 0; i < seq.length; i++){
+		seq[i].toggleTouch();	
+	}
 	touch == false;
 }
 
@@ -402,6 +398,15 @@ function Button_Set(num_, y_, r_, color_){
 			}
 		}
 	}
+
+	this.toggleTouch = function(){
+		if(select_global == this.index){
+			for(var i = 0; i < num_; i++){
+				this.buttons[i].toggleTouch();
+				this.idle_buttons[i].toggleTouch();
+			}
+		}
+	}
 }
 
 //===========================================
@@ -446,7 +451,7 @@ function Button(x_, y_, r_, c_){
 
 	this.checkHover = function(){
 		var mouseDist = dist(this.x, this.y, mouseX, mouseY);
-		if(mouseDist < this.r && touch == false){
+		if(mouseDist < this.r){
 			this.hover = true;
 		} else {
 			this.hover = false;
@@ -455,6 +460,14 @@ function Button(x_, y_, r_, c_){
 
 	this.toggle = function(){
 		if(this.hover){
+			this.t_counter++;
+			this.on = boolean(this.t_counter % 2);
+		}
+	}
+
+	this.toggleTouch = function(){
+		var touchDist = dist(this.x, this.y, ptouchX, ptouchY);
+		if(touchDist < this.r){
 			this.t_counter++;
 			this.on = boolean(this.t_counter % 2);
 		}
@@ -509,6 +522,14 @@ function IdleButton(x_, y_, r_, c_){
 
 	this.toggle = function(){
 		if(this.parent.buttons[this.index].hover){
+			this.t_counter++;
+			this.on = boolean(this.t_counter % 2);
+		}
+	}
+
+	this.toggleTouch = function(){
+		var touchDist = dist(this.parent.buttons[this.index].x, this.parent.buttons[this.index].y, ptouchX, ptouchY);
+		if(touchDist < this.r){
 			this.t_counter++;
 			this.on = boolean(this.t_counter % 2);
 		}
