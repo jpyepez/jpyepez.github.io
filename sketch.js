@@ -314,6 +314,7 @@ function mouseReleased(){
 	for(var i = 0; i < seq.length; i++){
 		seq[i].toggle();	
 	}
+	touch == false;
 }
 
 //===========================================
