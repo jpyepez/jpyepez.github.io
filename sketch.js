@@ -47,11 +47,15 @@ var slider_area;
 var sidebar;
 
 // Temporary size values
-var temp_width;
-var temp_height;
+var init_width;
+var init_height;
+
+// Touch values
+var touch;
 
 //===========================================
 function preload(){
+	// Load sound files
 	kick = loadSound('audio/kick_01.wav');
 	snare = loadSound('audio/snare_01.wav');
 	hihat_c = loadSound('audio/hihat_02.wav');
@@ -60,11 +64,13 @@ function preload(){
 
 //===========================================
 function setup(){
-	temp_width = 800;
-	temp_height = 600;
+	init_width = 800;
+	init_height = 600;
 
-	createCanvas(temp_width, temp_height);
+	createCanvas(init_width, init_height);
 	frameRate(60);
+	cursor(HAND);
+	touch = false;
 
 	// Sequencer variables
 	num_ins = 6;
@@ -154,6 +160,13 @@ function draw(){
 	read();
 	update_tempo();
 	update_steps();
+}
+
+//===========================================
+// Check/update touch
+function checkTouch(){
+	if(touchIsDown) touch = true;
+	else touch = false;
 }
 
 //===========================================
@@ -305,17 +318,19 @@ function mouseReleased(){
 
 //===========================================
 function windowResized() {
-  var resized_width;
-  var resized_height;
-  
-  if(windowWidth < temp_width) 
-  	resized_width = windowWidth;
-  else resized_width = temp_width;
-  
-  if(windowHeight < temp_height)
-  	resized_height = windowHeight;
-  else resized_height = temp_height;
-  resizeCanvas(resized_width, resized_height);
+
+	var temp_width;
+	var temp_height;
+
+	if(width > windowWidth){
+		temp_width = windowWidth;
+	} else temp_width = init_width;
+
+	if(height > windowHeight){
+		temp_height = windowHeight;
+	} else temp_height = init_height;
+
+	resizeCanvas(temp_width, temp_height);
 }
 
 //===========================================
@@ -413,12 +428,12 @@ function Button(x_, y_, r_, c_){
 		else fill(255);
 		ellipse(this.x, this.y, this.r * 2.5, this.r * 2.5);
 
-		if(this.hover) fill(255, 255, 0);
+		if(!this.on && this.hover) fill(215, 215, 215);
 		else {
 			if(this.on) fill(this.c);
 			else fill(255);
 		}
-		if(this.pressed) fill(125, 125, 0);
+		if(this.pressed) fill(125, 125, 125);
 		stroke(0);
 		ellipse(this.x, this.y, this.r * 2.0, this.r * 2.0);
 	};
@@ -430,7 +445,7 @@ function Button(x_, y_, r_, c_){
 
 	this.checkHover = function(){
 		var mouseDist = dist(this.x, this.y, mouseX, mouseY);
-		if(mouseDist < this.r){
+		if(mouseDist < this.r && touch == false){
 			this.hover = true;
 		} else {
 			this.hover = false;
