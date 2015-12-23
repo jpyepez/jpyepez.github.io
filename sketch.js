@@ -314,23 +314,6 @@ function touchEnded(){
 }
 
 //===========================================
-function windowResized() {
-
-	var temp_width;
-	var temp_height;
-
-	if(width > windowWidth){
-		temp_width = windowWidth;
-	} else temp_width = init_width;
-
-	if(height > windowHeight){
-		temp_height = windowHeight;
-	} else temp_height = init_height;
-
-	resizeCanvas(temp_width, temp_height);
-}
-
-//===========================================
 // Button Set class
 // Arguments: number of buttons, y position, radius, color
 function Button_Set(num_, y_, r_, color_){
