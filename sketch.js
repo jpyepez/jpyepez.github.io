@@ -1,7 +1,6 @@
 // P5js Sequencer
 // JP Yepez
 console.log("ld");
-console.log(melody_lead);
 // Sequencer elements
 var seq;
 var select_names;
@@ -170,6 +169,7 @@ function setup(){
 	// Melodic Instruments
 	lead = new Lead();
 	bass = new Bass();
+	console.log(melody_lead);
 }
 
 //===========================================
