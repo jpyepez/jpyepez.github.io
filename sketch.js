@@ -1,6 +1,6 @@
 // P5js Sequencer
 // JP Yepez
-console.log("20");
+console.log("21");
 // Sequencer elements
 var seq;
 var select_names;
@@ -710,6 +710,7 @@ function Melody_Set(num_, x_, y_, w_, h_, color_){
 		for(var i = 0; i < num_; i++){
 			this.mel_steps[i].toggleTouch();
 		}
+		console.log("yup");
 	}
 
 	this.get_scale_notes = function(scale){
@@ -1116,7 +1117,6 @@ function Editor(x_, y_, w_, h_, c_){
 
 	this.toggleTouch = function(){
 		this.melody.toggleTouch();
-		console.log("yup");
 	}
 
 	this.toggleCtrls = function(){
