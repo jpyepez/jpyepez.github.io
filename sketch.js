@@ -541,7 +541,7 @@ function touchEnded(){
 	} else {
 		for(var i = 0; i < seq.length; i++){
 			seq[i].toggleTouch();
-			seq[i].checkpTouch();
+			//seq[i].checkpTouch();
 		}
 	}
 }
@@ -627,7 +627,6 @@ function Button_Set(num_, y_, r_, color_){
 	this.checkpTouch = function(){
 		if((ptouchX > sidebar + this.x_box) && (ptouchX < this.x_box + this.w_box) && (ptouchY > (this.y_box - this.hover_offset)) && (ptouchY < (this.y_box + this.h_box + this.hover_offset))) {
 			select_global = this.index;
-			console.log("yup");
 		}
 	}
 }
