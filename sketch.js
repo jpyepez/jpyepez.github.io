@@ -541,7 +541,7 @@ function touchEnded(){
 	} else {
 		for(var i = 0; i < seq.length; i++){
 			seq[i].toggleTouch();
-			//seq[i].checkpTouch();
+			seq[i].checkpTouch();
 		}
 	}
 }
@@ -837,6 +837,7 @@ function Button(x_, y_, r_, c_){
 	this.toggleTouch = function(){
 		var touchDist = dist(this.x, this.y, ptouchX, ptouchY);
 		if(touchDist < this.r){
+			console.log("yup" + this.index);
 			this.t_counter++;
 			this.on = boolean(this.t_counter % 2);
 
