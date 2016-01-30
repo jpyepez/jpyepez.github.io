@@ -1,6 +1,6 @@
 // P5js Sequencer
 // JP Yepez
-console.log("23");
+console.log("24");
 // Sequencer elements
 var seq;
 var select_names;
@@ -1469,10 +1469,10 @@ function MelStep(num_, x_, y_, w_, h_, color_){
 		for(var i = 0; i < num_; i++){
 			// Clear other buttons
 			if((ptouchX > this.x) && (ptouchX < this.x + this.w) && (ptouchY > this.y) && (ptouchY < this.y + this.h)) {
+				console.log("yup");
 				if(!((ptouchX > this.x) && (ptouchX < this.x + this.w) && (ptouchY > this.y) && (ptouchY < this.y + this.h))) {
 					this.buttons[i].on = false;
 					this.buttons[i].t_counter = 0;
-					console.log("yup");
 				}
 			}
 		}
