@@ -1,6 +1,6 @@
 // P5js Sequencer
 // JP Yepez
-console.log("21");
+console.log("22");
 // Sequencer elements
 var seq;
 var select_names;
@@ -710,7 +710,6 @@ function Melody_Set(num_, x_, y_, w_, h_, color_){
 		for(var i = 0; i < num_; i++){
 			this.mel_steps[i].toggleTouch();
 		}
-		console.log("yup");
 	}
 
 	this.get_scale_notes = function(scale){
@@ -1374,7 +1373,14 @@ function MelButton(x_, y_, w_, h_, color_) {
 	this.toggleTouch = function() {
 		if((ptouchX > this.x) && (ptouchX < this.x + this.w) && (ptouchY > this.y) && (ptouchY < this.y + this.h)) {
 			if(this.mode == 1){
-				this.on = boolean(this.t_counter++ % 2);
+				this.t_counter++;
+				this.on = boolean(this.t_counter % 2);
+
+				var parent_idx = this.parent.index;
+				
+				this.parent.parent.parent.parent.buttons[parent_idx].t_counter = this.t_counter;
+				this.parent.parent.parent.parent.buttons[parent_idx].on = this.on;
+				this.parent.parent.parent.parent.idle_buttons[parent_idx].on = this.on;
 			}
 		}
 	}
@@ -1459,7 +1465,7 @@ function MelStep(num_, x_, y_, w_, h_, color_){
 		this.note = this.note_base + int(this.parent.parent.root_opt.value()) + button_note;
 	}
 
-	this.toggleTouch = function(){		// Needs to be checked
+	this.toggleTouch = function(){
 		for(var i = 0; i < num_; i++){
 			// Clear other buttons
 			if(this.hover){
