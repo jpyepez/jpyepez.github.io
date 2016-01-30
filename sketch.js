@@ -1,6 +1,6 @@
 // P5js Sequencer
 // JP Yepez
-console.log("13");
+console.log("14");
 // Sequencer elements
 var seq;
 var select_names;
@@ -174,7 +174,7 @@ function setup(){
 //===========================================
 function draw(){
 	background(0);
-	
+	console.log(seq[0].index);
 	labels();
 
 	play_button.run();
@@ -835,10 +835,8 @@ function Button(x_, y_, r_, c_){
 	}
 
 	this.toggleTouch = function(){
-		if((select_global == 0) || (select_global == 5)) console.log("yup");
 		var touchDist = dist(this.x, this.y, ptouchX, ptouchY);
 		if(touchDist < this.r){
-			if((select_global == 0) || (select_global == 5)) console.log("yuppers");
 			this.t_counter++;
 			this.on = boolean(this.t_counter % 2);
 
