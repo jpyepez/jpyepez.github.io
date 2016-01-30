@@ -532,18 +532,18 @@ function touchEnded(){
 	play_button.toggleTouch();
 	rew_button.toggleTouch();
 
-	// if(seq[0].editor.ed_mode) {
-	// 	seq[0].editor.close.toggleTouch();
-	// 	seq[0].editor.toggleTouch();
-	// } else if(seq[1].editor.ed_mode) {
-	// 	seq[1].editor.close.toggleTouch();
-	// 	seq[1].editor.toggleTouch();
-	// } else {
+	if(seq[0].editor.ed_mode) {
+		seq[0].editor.close.toggleTouch();
+		seq[0].editor.toggleTouch();
+	} else if(seq[1].editor.ed_mode) {
+		seq[1].editor.close.toggleTouch();
+		seq[1].editor.toggleTouch();
+	} else {
 		for(var i = 0; i < seq.length; i++){
 			seq[i].toggleTouch();
 			seq[i].checkpTouch();
 		}
-	//}
+	}
 }
 
 //===========================================
@@ -661,6 +661,7 @@ Ld_Button_Set = function(num_, y_, r_, color_){
 			for(var i = 0; i < num_; i++){
 				this.buttons[i].toggle();
 				this.idle_buttons[i].toggle();
+				console.log("yup");
 			}
 		}
 	}
