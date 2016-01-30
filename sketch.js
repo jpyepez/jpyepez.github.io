@@ -1,6 +1,6 @@
 // P5js Sequencer
 // JP Yepez
-console.log("fix2");
+console.log("fix3");
 // Sequencer elements
 var seq;
 var select_names;
@@ -268,8 +268,9 @@ function toggle_ld_edit(){
 		seq[0].editor.last_ed_change = millis();	
 	}
 	if(!seq[0].editor.ed_mode && !seq[1].editor.ed_mode){
-		seq[0].editor.ed_mode = false;
-		seq[1].editor.ed_mode = false;
+		for(var i = 0; i < seq.length; i++){
+			seq[i].run();
+		}
 	}
 }
 
@@ -286,8 +287,9 @@ function toggle_bs_edit(){
 		seq[1].editor.last_ed_change = millis();	
 	}
 	if(!seq[0].editor.ed_mode && !seq[1].editor.ed_mode){
-		seq[0].editor.ed_mode = false;
-		seq[1].editor.ed_mode = false;
+		for(var i = 0; i < seq.length; i++){
+			seq[i].run();
+		}
 	}
 }
 
