@@ -621,6 +621,7 @@ function Button_Set(num_, y_, r_, color_){
 				this.buttons[i].toggleTouch();
 				this.idle_buttons[i].toggleTouch();
 			}
+			console.log("yup");
 		}
 	}
 
@@ -847,7 +848,7 @@ function Button(x_, y_, r_, c_){
 			}
 		}
 
-		console.log(this.parent.index + ", " + this.index);
+		//console.log(this.parent.index + ", " + this.index); //error here
 	}
 
 	this.checkPress = function(){
