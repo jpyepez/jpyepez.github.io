@@ -847,7 +847,7 @@ function Button(x_, y_, r_, c_){
 			}
 		}
 
-		if((this.index == 0) && (parent.index == 0){
+		if((this.index == 0) && (parent.index == 0)){
 			console.log("yup");
 		}
 	}
