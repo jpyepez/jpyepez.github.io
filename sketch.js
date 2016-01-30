@@ -627,6 +627,7 @@ function Button_Set(num_, y_, r_, color_){
 	this.checkpTouch = function(){
 		if((ptouchX > sidebar + this.x_box) && (ptouchX < this.x_box + this.w_box) && (ptouchY > (this.y_box - this.hover_offset)) && (ptouchY < (this.y_box + this.h_box + this.hover_offset))) {
 			select_global = this.index;
+			console.log("yup");
 		}
 	}
 }
@@ -661,7 +662,6 @@ Ld_Button_Set = function(num_, y_, r_, color_){
 			for(var i = 0; i < num_; i++){
 				this.buttons[i].toggle();
 				this.idle_buttons[i].toggle();
-				console.log("yup");
 			}
 		}
 	}
