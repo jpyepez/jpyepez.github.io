@@ -1,6 +1,6 @@
 // P5js Sequencer
 // JP Yepez
-console.log("27");
+console.log("ld");
 // Sequencer elements
 var seq;
 var select_names;
@@ -257,13 +257,16 @@ function set_play(){
 
 //===========================================
 function toggle_ld_edit(){
-	seq[1].editor.ed_mode = false;
-	if(!seq[0].editor.ed_mode) 
-		seq[0].editor.ed_mode = true;
-	else
-		seq[0].editor.ed_mode = false;
-	seq[0].editor.toggleCtrls();
-	seq[1].editor.toggleCtrls();
+	if((seq[0].editor.last_ed_change + 20) < millis()){
+		seq[1].editor.ed_mode = false;
+		if(!seq[0].editor.ed_mode) 
+			seq[0].editor.ed_mode = true;
+		else
+			seq[0].editor.ed_mode = false;
+		seq[0].editor.toggleCtrls();
+		seq[1].editor.toggleCtrls();
+		seq[0].editor.last_ed_change = millis();	
+	}
 }
 
 //===========================================
@@ -1055,6 +1058,7 @@ function Editor(x_, y_, w_, h_, c_){
 	this.melody = new Melody_Set(this.steps, this.x + this.sidebar, this.y+30, this.w - this.sidebar, this.h-30, this.c);
 	this.melody.parent = this;
 	this.current_scale;
+	this.last_ed_change;
 	this.parent;
 	
 	// Scale setup
