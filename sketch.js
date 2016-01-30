@@ -174,7 +174,7 @@ function setup(){
 //===========================================
 function draw(){
 	background(0);
-	console.log(seq[0].buttons[0].x, seq[0].buttons[0].y, pTouchX, pTouchY);
+	console.log(seq[0].buttons[0].x, seq[0].buttons[0].y, ptouchX, ptouchY);
 	labels();
 
 	play_button.run();
