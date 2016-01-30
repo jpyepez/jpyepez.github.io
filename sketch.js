@@ -847,7 +847,7 @@ function Button(x_, y_, r_, c_){
 			}
 		}
 
-		console.log(parent.index + ", " + this.index);
+		console.log(this.parent.index + ", " + this.index);
 	}
 
 	this.checkPress = function(){
