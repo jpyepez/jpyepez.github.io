@@ -661,7 +661,7 @@ Ld_Button_Set = function(num_, y_, r_, color_){
 			for(var i = 0; i < num_; i++){
 				this.buttons[i].toggle();
 				this.idle_buttons[i].toggle();
-				console.log("yup");
+				console.log(dist(seq[0].buttons[0].x, seq[0].buttons[0].y, ptouchX, ptouchY));
 			}
 		}
 	}
