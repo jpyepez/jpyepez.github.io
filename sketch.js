@@ -543,7 +543,7 @@ function touchEnded(){
 			seq[i].toggleTouch();
 			seq[i].checkpTouch();
 		}
-	}
+	//}
 }
 
 //===========================================
