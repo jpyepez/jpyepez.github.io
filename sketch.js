@@ -1,6 +1,6 @@
 // P5js Sequencer
 // JP Yepez
-
+console.log("12");
 // Sequencer elements
 var seq;
 var select_names;
@@ -621,7 +621,6 @@ function Button_Set(num_, y_, r_, color_){
 				this.buttons[i].toggleTouch();
 				this.idle_buttons[i].toggleTouch();
 			}
-			console.log("yup");
 		}
 	}
 
@@ -663,6 +662,7 @@ Ld_Button_Set = function(num_, y_, r_, color_){
 				this.buttons[i].toggle();
 				this.idle_buttons[i].toggle();
 			}
+			console.log("yup");
 		}
 	}
 
@@ -847,8 +847,6 @@ function Button(x_, y_, r_, c_){
 				this.parent.editor.melody.mel_steps[this.index].buttons[idx].on = this.on;
 			}
 		}
-
-		//console.log(this.parent.index + ", " + this.index); //error here
 	}
 
 	this.checkPress = function(){
