@@ -661,7 +661,6 @@ Ld_Button_Set = function(num_, y_, r_, color_){
 			for(var i = 0; i < num_; i++){
 				this.buttons[i].toggle();
 				this.idle_buttons[i].toggle();
-				console.log(dist(seq[0].buttons[0].x, seq[0].buttons[0].y, ptouchX, ptouchY));
 			}
 		}
 	}
@@ -846,6 +845,10 @@ function Button(x_, y_, r_, c_){
 				this.parent.editor.melody.mel_steps[this.index].buttons[idx].t_counter = this.t_counter;
 				this.parent.editor.melody.mel_steps[this.index].buttons[idx].on = this.on;
 			}
+		}
+
+		if((this.index == 0) && (parent.index == 0){
+			console.log("yup");
 		}
 	}
 
