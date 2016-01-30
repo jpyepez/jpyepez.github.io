@@ -251,6 +251,11 @@ function set_global(){
 }
 
 //===========================================
+function set_global(value){
+	select_global = value;
+}
+
+//===========================================
 function set_play(){
 	play_global = this.value();
 }
@@ -268,8 +273,7 @@ function toggle_ld_edit(){
 		seq[0].editor.last_ed_change = millis();	
 	}
 	if(!seq[0].editor.ed_mode && !seq[1].editor.ed_mode)
-		select_global = 0;
-	set_global();
+		set_global(0);
 }
 
 //===========================================
@@ -285,8 +289,7 @@ function toggle_bs_edit(){
 		seq[1].editor.last_ed_change = millis();	
 	}
 	if(!seq[0].editor.ed_mode && !seq[1].editor.ed_mode)
-		select_global = 1;
-	set_global();
+		set_global(1);
 }
 
 //===========================================
