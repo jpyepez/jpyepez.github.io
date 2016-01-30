@@ -279,6 +279,7 @@ function toggle_bs_edit(){
 			seq[1].editor.ed_mode = false;
 		seq[0].editor.toggleCtrls();
 		seq[1].editor.toggleCtrls();
+		seq[1].editor.last_ed_change = millis();	
 	}
 }
 
