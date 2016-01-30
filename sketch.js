@@ -317,6 +317,7 @@ function apply_global(){
 				seq[i].editor.root_opt.value(int(rnd_root));
 				var rnd_scl = random(0, seq[i].editor.scales.length);
 				seq[i].editor.scale_opt.value(seq[i].editor.scales[int(rnd_scl)]);
+				seq[i].editor.check_scale();
 			}
 			
 		}
@@ -474,6 +475,8 @@ function update_all_notes(){
 }
 
 //===========================================
+// Read function: Update global tempo counter
+// and run play function on every new beat
 function read(){
 	if(steps_slider.value() == last_steps){
 		if(play_state){
@@ -496,6 +499,7 @@ function read(){
 }
 
 //===========================================
+// Play function: Trigger notes
 function play(){
 	if(seq[0].buttons[beat].on) lead.play();
 	if(seq[1].buttons[beat].on) bass.play();
@@ -774,6 +778,7 @@ function Button(x_, y_, r_, c_){
 	this.on = false;
 	this.hover = false;
 	this.pressed = false;
+	this.mode = 1;
 	this.index;
 	this.parent;
 
@@ -784,18 +789,22 @@ function Button(x_, y_, r_, c_){
 
 	this.display = function(){
 		strokeWeight(1);
+		stroke(0);
 		if(beat == this.index) fill(255, 0, 0);
 		else fill(255);
 		ellipse(this.x, this.y, this.r * 2.5, this.r * 2.5);
 
-		if(!this.on && this.hover) fill(215, 215, 215);
-		else {
-			if(this.on) fill(this.c);
-			else fill(255);
-		}
-		if(this.pressed) fill(125, 125, 125);
-		stroke(0);
+		if(this.mode == 1 && this.on){
+			fill(this.c);
+		} else fill(255);
 		ellipse(this.x, this.y, this.r * 2.0, this.r * 2.0);
+		if(this.pressed) {
+			fill(100, 150);
+			ellipse(this.x, this.y, this.r * 2.0, this.r * 2.0);
+		} else if(this.hover) {
+			fill(200, 150);
+			ellipse(this.x, this.y, this.r * 2.0, this.r * 2.0);
+		}
 	};
 
 	this.run = function(){
@@ -1249,7 +1258,7 @@ function SimpleButton(x_, y_, w_, h_){
 	this.h = h_;
 	this.hover = false;
 	this.pressed = false;
-	this.mode = 0;			// Modes: 0 - switch, 1 - latch
+	this.mode = 0;			// Modes: 0 - momentary, 1 - latch, 2 - timer
 	this.on = false;
 	this.t_counter = 0;
 
