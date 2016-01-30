@@ -644,7 +644,7 @@ Ld_Button_Set = function(num_, y_, r_, color_){
 	}
 
 	this.run_editor = function(){
-		this.editor.run();
+		//this.editor.run();
 	}
 
 	this.toggle = function(){
@@ -1151,7 +1151,7 @@ function Editor(x_, y_, w_, h_, c_){
 	}
 
 	this.toggleTouch = function(){
-		//this.melody.toggleTouch();
+		this.melody.toggleTouch();
 	}
 
 	this.toggleCtrls = function(){
