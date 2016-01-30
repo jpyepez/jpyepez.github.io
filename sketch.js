@@ -267,6 +267,7 @@ function toggle_ld_edit(){
 		seq[1].editor.toggleCtrls();
 		seq[0].editor.last_ed_change = millis();	
 	}
+	console.log(seq[0].editor.last_ed_change, millis());
 }
 
 //===========================================
@@ -1058,7 +1059,7 @@ function Editor(x_, y_, w_, h_, c_){
 	this.melody = new Melody_Set(this.steps, this.x + this.sidebar, this.y+30, this.w - this.sidebar, this.h-30, this.c);
 	this.melody.parent = this;
 	this.current_scale;
-	this.last_ed_change;
+	this.last_ed_change = 0;
 	this.parent;
 	
 	// Scale setup
