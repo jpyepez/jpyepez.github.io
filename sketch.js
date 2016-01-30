@@ -532,13 +532,13 @@ function touchEnded(){
 	play_button.toggleTouch();
 	rew_button.toggleTouch();
 
-	if(seq[0].editor.ed_mode) {
-		seq[0].editor.close.toggleTouch();
-		seq[0].editor.toggleTouch();
-	} else if(seq[1].editor.ed_mode) {
-		seq[1].editor.close.toggleTouch();
-		seq[1].editor.toggleTouch();
-	} else {
+	// if(seq[0].editor.ed_mode) {
+	// 	seq[0].editor.close.toggleTouch();
+	// 	seq[0].editor.toggleTouch();
+	// } else if(seq[1].editor.ed_mode) {
+	// 	seq[1].editor.close.toggleTouch();
+	// 	seq[1].editor.toggleTouch();
+	// } else {
 		for(var i = 0; i < seq.length; i++){
 			seq[i].toggleTouch();
 			seq[i].checkpTouch();
@@ -837,7 +837,6 @@ function Button(x_, y_, r_, c_){
 	this.toggleTouch = function(){
 		var touchDist = dist(this.x, this.y, ptouchX, ptouchY);
 		if(touchDist < this.r){
-			console.log("yup" + this.index);
 			this.t_counter++;
 			this.on = boolean(this.t_counter % 2);
 
