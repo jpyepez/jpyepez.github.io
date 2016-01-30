@@ -1,6 +1,6 @@
 // P5js Sequencer
 // JP Yepez
-console.log("18");
+console.log("19");
 // Sequencer elements
 var seq;
 var select_names;
@@ -1112,6 +1112,7 @@ function Editor(x_, y_, w_, h_, c_){
 
 	this.toggle = function(){
 		this.melody.toggle();
+		console.log("yup");
 	}
 
 	this.toggleTouch = function(){
