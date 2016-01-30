@@ -659,9 +659,8 @@ Ld_Button_Set = function(num_, y_, r_, color_){
 	this.toggleTouch = function(){
 		if(select_global == this.index){
 			for(var i = 0; i < num_; i++){
-				this.buttons[i].toggle();
-				console.log("yup", i);
-				this.idle_buttons[i].toggle();
+				this.buttons[i].toggleTouch();
+				this.idle_buttons[i].toggleTouch();
 			}
 		}
 	}
