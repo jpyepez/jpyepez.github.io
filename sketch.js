@@ -1,6 +1,6 @@
 // P5js Sequencer
 // JP Yepez
-console.log("25");
+console.log("25.2");
 // Sequencer elements
 var seq;
 var select_names;
@@ -1478,7 +1478,7 @@ function MelStep(num_, x_, y_, w_, h_, color_){
 
 		// Toggle button
 		for(var i = 0; i < num_; i++){
-			this.buttons[i].toggle();
+			this.buttons[i].toggleTouch();
 			if((ptouchX > this.x) && (ptouchX < this.x + this.w) && (ptouchY > this.y) && (ptouchY < this.y + this.h)) {
 				this.active_index = this.buttons[i].index;
 				console.log(this.active_index);
