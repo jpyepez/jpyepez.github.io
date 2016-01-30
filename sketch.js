@@ -1,6 +1,6 @@
 // P5js Sequencer
 // JP Yepez
-console.log("17");
+console.log("18");
 // Sequencer elements
 var seq;
 var select_names;
@@ -647,24 +647,6 @@ Ld_Button_Set = function(num_, y_, r_, color_){
 		this.editor.run();
 	}
 
-	this.toggle = function(){
-		if(select_global == this.index){
-			for(var i = 0; i < num_; i++){
-				this.buttons[i].toggle();
-				this.idle_buttons[i].toggle();
-			}
-		}
-	}
-
-	this.toggleTouch = function(){
-		if(select_global == this.index){
-			for(var i = 0; i < num_; i++){
-				this.buttons[i].toggleTouch();
-				this.idle_buttons[i].toggleTouch();
-			}
-		}
-	}
-
 }
 
 //===========================================
@@ -681,24 +663,6 @@ function Bs_Button_Set(num_, y_, r_, color_){
 
 	this.run_editor = function(){
 		this.editor.run();
-	}
-
-	this.toggle = function(){
-		if(select_global == this.index){
-			for(var i = 0; i < num_; i++){
-				this.buttons[i].toggle();
-				this.idle_buttons[i].toggle();
-			}
-		}
-	}
-
-	this.toggleTouch = function(){
-		if(select_global == this.index){
-			for(var i = 0; i < num_; i++){
-				this.buttons[i].toggle();
-				this.idle_buttons[i].toggle();
-			}
-		}
 	}
 }
 
