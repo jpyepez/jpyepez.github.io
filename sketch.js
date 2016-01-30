@@ -169,7 +169,6 @@ function setup(){
 	// Melodic Instruments
 	lead = new Lead();
 	bass = new Bass();
-	console.log(melody_lead);
 }
 
 //===========================================
@@ -258,7 +257,7 @@ function set_play(){
 
 //===========================================
 function toggle_ld_edit(){
-	if((seq[0].editor.last_ed_change + 20) < millis()){
+	if((seq[0].editor.last_ed_change + 1000) < millis()){
 		seq[1].editor.ed_mode = false;
 		if(!seq[0].editor.ed_mode) 
 			seq[0].editor.ed_mode = true;
