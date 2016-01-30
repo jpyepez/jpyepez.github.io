@@ -1469,7 +1469,6 @@ function MelStep(num_, x_, y_, w_, h_, color_){
 		for(var i = 0; i < num_; i++){
 			// Clear other buttons
 			if((ptouchX > this.x) && (ptouchX < this.x + this.w) && (ptouchY > this.y) && (ptouchY < this.y + this.h)) {
-				console.log("yup");
 				if(!((ptouchX > this.x) && (ptouchX < this.x + this.w) && (ptouchY > this.y) && (ptouchY < this.y + this.h))) {
 					this.buttons[i].on = false;
 					this.buttons[i].t_counter = 0;
@@ -1482,6 +1481,7 @@ function MelStep(num_, x_, y_, w_, h_, color_){
 			this.buttons[i].toggle();
 			if((ptouchX > this.x) && (ptouchX < this.x + this.w) && (ptouchY > this.y) && (ptouchY < this.y + this.h)) {
 				this.active_index = this.buttons[i].index;
+				console.log(this.active_index);
 				var button_note = this.get_note(this.buttons[i].index);
 				this.note = this.note_base + int(this.parent.parent.root_opt.value()) + button_note;
 			}
