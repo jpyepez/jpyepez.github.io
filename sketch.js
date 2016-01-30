@@ -531,6 +531,7 @@ function mouseReleased(){
 function touchEnded(){
 	play_button.toggleTouch();
 	rew_button.toggleTouch();
+	console.log("yup");
 
 	if(seq[0].editor.ed_mode) {
 		seq[0].editor.close.toggleTouch();
