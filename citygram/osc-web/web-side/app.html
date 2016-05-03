@@ -1,53 +1,38 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
-<html> 
-<head>
-    <title>Citygram Particle Systems</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <style>
-        body {
-            margin: 0px;
-            overflow: hidden;
-        }
-        #example {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-    </style>
+<html> <head>
+<title></title>
 </head>
 
 <body>
-    <div id="status"></div>
+<p>Connect your OSC app/device at port 3333 to send messages to this
+page.<br /><br />Configure your OSC app/device to listen at port 3334
+to messages I send from this page.</p>
 
-    <div id=example style=position:absolute; ></div>
+<hr />
 
-    <script src="./js/three.min.js"></script>
-    <script src="./js/StereoEffect.js"></script>
-    <script src="./js/DeviceOrientationControls.js"></script>
-    <script src="./js/OrbitControls.js"></script>
-    <script src="http://127.0.0.1:8081/socket.io/socket.io.js"></script>
+Received from an OSC app/device at : <div id="status"></div>
 
-    <script>
-    // OSC Stuff
-    socket = io.connect('http://127.0.0.1', { port: 8081, rememberTransport: false});
-    console.log('oi');
-    socket.on('connect', function() {
+<hr />
+
+<script src="http://127.0.0.1:8081/socket.io/socket.io.js"></script>
+
+<script>
+   socket = io.connect('http://127.0.0.1', { port: 8081, rememberTransport: false});
+   console.log('oi');
+   socket.on('connect', function() {
         // sends to socket.io server the host/port of oscServer
         // and oscClient
         socket.emit('config',
-        {
-            server: {
-                port: 3333,
-                host: '127.0.0.1'
-            },
-            client: {
-                port: 3334,
-                host: '127.0.0.1'
+            {
+                server: {
+                    port: 3333,
+                    host: '127.0.0.1'
+                },
+                client: {
+                    port: 3334,
+                    host: '127.0.0.1'
+                }
             }
-        }
         );
     });
 
@@ -56,173 +41,8 @@
         status.innerHTML = obj[0];
         console.log(obj);
     });
-
-    // THREE js stuff
-    var camera, scene, renderer;
-    var effect, controls;
-    var element, container;
-    var particles,
-        particleSystem,
-        particleCount;
-    var clock = new THREE.Clock();
-    
-    init();
-    animate();
-
-    function init() {
-        renderer = new THREE.WebGLRenderer();
-        element = renderer.domElement;
-        container = document.getElementById('example');
-        container.appendChild(element);
-        effect = new THREE.StereoEffect(renderer);
-        scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.001, 700);
-        camera.position.set(0, 15, 0);
-        scene.add(camera);
-        controls = new THREE.OrbitControls(camera, element);
-        controls.rotateUp(Math.PI / 4);
-        controls.target.set(
-            camera.position.x + 0.1,
-            camera.position.y,
-            camera.position.z
-            );
-        controls.noZoom = true;
-        controls.noPan = true;
-        controls.autoRotate = false;
-        function setOrientationControls(e) {
-            if (!e.alpha) {
-                return;
-            }
-            controls = new THREE.DeviceOrientationControls(camera, true);
-            controls.connect();
-            controls.update();
-            element.addEventListener('click', fullscreen, false);
-            window.removeEventListener('deviceorientation', setOrientationControls);
-        }
-        window.addEventListener('deviceorientation', setOrientationControls, true);
-        var light = new THREE.HemisphereLight(0x777777, 0x000000, 0.6);
-        scene.add(light);
-        var texture = THREE.ImageUtils.loadTexture(
-            "./textures/water.jpg"
-            );
-        texture.wrapS = THREE.RepeatWrapping;
-        texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat = new THREE.Vector2(50, 50);
-        texture.anisotropy = renderer.getMaxAnisotropy();
-        var material = new THREE.MeshPhongMaterial({
-            color: 0xffffff,
-            specular: 0xffffff,
-            shininess: 20,
-            shading: THREE.FlatShading,
-            map: texture
-        });
-        var geometry = new THREE.PlaneGeometry(1000, 1000);
-        var mesh = new THREE.Mesh(geometry, material);
-        mesh.rotation.x = -Math.PI / 2;
-        scene.add(mesh);
-
-        // particle properties
-        particleCount = 1800;
-        particles = new THREE.Geometry();
-        pMaterial = new THREE.ParticleBasicMaterial({
-            color: 0xFFFFFF,
-            size: 10,
-            map: THREE.ImageUtils.loadTexture(
-                //"./textures/lensflare0.png"
-                //"./textures/particle.png"
-                //"./textures/particle2.png"
-                "./textures/sprite.png"
-                ),
-            blending: THREE.AdditiveBlending,
-            transparent: true,
-            alphaTest: 0.5
-        });
-
-        // individual particles
-        for(var p = 0; p < particleCount; p++) {
-
-            // random position values
-            var pX = Math.random() * 500 - 250,
-            pY = Math.random() * 500 - 250,
-            pZ = Math.random() * 500 - 250,
-            particle = new THREE.Vector3(pX, pY, pZ);
-
-            // create particle velocity
-            particle.velocity = new THREE.Vector3(
-                0, -Math.random(), 0);
-
-            // add particle to geometry
-            particles.vertices.push(particle);
-        }
-
-        particleSystem = new THREE.ParticleSystem(
-            particles,
-            pMaterial);
-
-        // update particle system
-        particleSystem.sortParticles = true;
-
-        scene.add(particleSystem);
-
-        window.addEventListener('resize', resize, false);
-        setTimeout(resize, 1);
-    }
-    
-    function resize() {
-        var width = container.offsetWidth;
-        var height = container.offsetHeight;
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
-        renderer.setSize(width, height);
-        effect.setSize(width, height);
-    }
-    function update(dt) {
-        resize();
-        camera.updateProjectionMatrix();
-        controls.update(dt);
-    }
-    function render(dt) {
-        effect.render(scene, camera);
-    }
-
-    function animate(t) {
-        particleSystem.rotation.y += 0.001;
-
-        var pCount = particleCount;
-
-        while(pCount--){
-            // get particles
-            var particle = particles.vertices[pCount];
-
-            if(particle.y < -200) {
-                particle.y = 200;
-                particle.velocity.y = 0;
-            }
-
-            particle.velocity.y -= Math.random() * .1;
-
-            // add velocity
-            particle.add(
-                particle.velocity);
-
-            particleSystem.geometry.verticesNeedUpdate = true;
-        }
-
-        requestAnimationFrame(animate);
-        update(clock.getDelta());
-        render(clock.getDelta());
-    }
-    function fullscreen() {
-        if (container.requestFullscreen) {
-            container.requestFullscreen();
-        } else if (container.msRequestFullscreen) {
-            container.msRequestFullscreen();
-        } else if (container.mozRequestFullScreen) {
-            container.mozRequestFullScreen();
-        } else if (container.webkitRequestFullscreen) {
-            container.webkitRequestFullscreen();
-        }
-    }
 </script>
+
+<button onclick="socket.emit('message', '/foobar');">Send OSC message</button>
 
 </body> </html>
