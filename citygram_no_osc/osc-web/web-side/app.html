@@ -32,7 +32,7 @@
 
     <script>
     
-    var rms, cent;
+    //var rms, cent;
 
     // OSC Stuff
     // socket = io.connect('http://10.40.16.144', { port: 8081, rememberTransport: false});
@@ -199,13 +199,10 @@
             // get particles
             var particle = particles.vertices[pCount];
 
-            if(cent != null){
-                pMaterial.color.r = cent/4000.0;
-                pMaterial.color.g = cent/4000.0;
-            } else {
-                pMaterial.color.r = .5;
-                pMaterial.color.g = .5;
-            }
+           
+            pMaterial.color.r = .5;
+            pMaterial.color.g = .5;
+           
 
             if(particle.x < -200) {
                 particle.x = 200;
@@ -238,10 +235,7 @@
 
             particle.acceleration.normalize();
 
-            if(rms != null)
-                particle.acceleration.multiplyScalar(rms);
-            else
-                particle.acceleration.multiplyScalar(.01);
+            particle.acceleration.multiplyScalar(.01);
 
             particle.velocity.add(particle.acceleration);
 
