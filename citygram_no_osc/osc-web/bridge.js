@@ -3,19 +3,21 @@ var osc = require('node-osc'),
 
 var oscServer, oscClient;
 
+oscServer = new osc.Server(3333, 'localhost');
+
 io.sockets.on('connection', function (socket) {
   socket.on("config", function (obj) {
-    oscServer = new osc.Server(obj.server.port, obj.server.host);
-    oscClient = new osc.Client(obj.client.host, obj.client.port);
-
-    oscClient.send('/status', socket.sessionId + ' connected');
-
+    console.log('config');
     oscServer.on('message', function(msg, rinfo) {
-      console.log(msg, rinfo);
       socket.emit("message", msg);
     });
+    // oscClient = new osc.Client(obj.client.host, obj.client.port);
+
+    // oscClient.send('/status', socket.sessionId + ' connected');
   });
   socket.on("message", function (obj) {
-    oscClient.send(obj);
+    // oscClient.send(obj);
   });
 });
+
+

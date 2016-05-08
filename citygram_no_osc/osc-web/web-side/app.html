@@ -28,25 +28,22 @@
     <script src="./js/StereoEffect.js"></script>
     <script src="./js/DeviceOrientationControls.js"></script>
     <script src="./js/OrbitControls.js"></script>
-    <script src="http://127.0.0.1:8081/socket.io/socket.io.js"></script>
+    <script src="http://10.40.16.144:8081/socket.io/socket.io.js"></script>
 
     <script>
-    // // OSC Stuff
-    // socket = io.connect('http://127.0.0.1', { port: 8081, rememberTransport: false});
+    
+    var rms, cent;
+
+    // OSC Stuff
+    // socket = io.connect('http://10.40.16.144', { port: 8081, rememberTransport: false});
+    // // socket = io.connect('http://127.0.0.1', { port: 8081, rememberTransport: false});
     // console.log('oi');
     // socket.on('connect', function() {
     //     // sends to socket.io server the host/port of oscServer
     //     // and oscClient
     //     socket.emit('config',
     //     {
-    //         server: {
-    //             port: 3333,
-    //             host: '127.0.0.1'
-    //         },
-    //         client: {
-    //             port: 3334,
-    //             host: '127.0.0.1'
-    //         }
+    //         stuff: true
     //     }
     //     );
     // });
@@ -55,6 +52,8 @@
     //     var status = document.getElementById("status");
     //     status.innerHTML = obj[0];
     //     console.log(obj);
+    //     rms = obj[2];
+    //     cent = obj[3];
     // });
 
     // THREE js stuff
@@ -71,12 +70,13 @@
 
     function init() {
         renderer = new THREE.WebGLRenderer();
+        renderer.setClearColor(0x000000);
         element = renderer.domElement;
         container = document.getElementById('example');
         container.appendChild(element);
         effect = new THREE.StereoEffect(renderer);
         scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.001, 700);
+        camera = new THREE.PerspectiveCamera(90, window.width/window.height, 0.001, 700);
         camera.position.set(0, 15, 0);
         scene.add(camera);
         controls = new THREE.OrbitControls(camera, element);
@@ -88,7 +88,7 @@
             );
         controls.noZoom = true;
         controls.noPan = true;
-        controls.autoRotate = false;
+        //controls.autoRotate = false;
         function setOrientationControls(e) {
             if (!e.alpha) {
                 return;
@@ -97,7 +97,7 @@
             controls.connect();
             controls.update();
             element.addEventListener('click', fullscreen, false);
-            window.removeEventListener('deviceorientation', setOrientationControls);
+            window.removeEventListener('deviceorientation', setOrientationControls, true);
         }
         window.addEventListener('deviceorientation', setOrientationControls, true);
         var light = new THREE.HemisphereLight(0x777777, 0x000000, 0.6);
@@ -110,7 +110,7 @@
         texture.repeat = new THREE.Vector2(50, 50);
         texture.anisotropy = renderer.getMaxAnisotropy();
         var material = new THREE.MeshPhongMaterial({
-            color: 0xffffff,
+            color: 0x000055,
             specular: 0xffffff,
             shininess: 20,
             shading: THREE.FlatShading,
@@ -122,10 +122,10 @@
         scene.add(mesh);
 
         // particle properties
-        particleCount = 1800;
+        particleCount = 1800;       // Originally 1800
         particles = new THREE.Geometry();
         pMaterial = new THREE.ParticleBasicMaterial({
-            color: 0xFFFFFF,
+            color: 0xffffff,
             size: 10,
             map: THREE.ImageUtils.loadTexture(
                 //"./textures/lensflare0.png"
@@ -148,8 +148,13 @@
             particle = new THREE.Vector3(pX, pY, pZ);
 
             // create particle velocity
+            // particle.velocity = new THREE.Vector3(
+            //     0, -Math.random(), 0);
+
+            var range = 5;
+
             particle.velocity = new THREE.Vector3(
-                0, -Math.random(), 0);
+                Math.random()*range - range*0.5, Math.random()*2 - 1, Math.random()*2 - 1);
 
             // add particle to geometry
             particles.vertices.push(particle);
@@ -194,12 +199,51 @@
             // get particles
             var particle = particles.vertices[pCount];
 
+            if(cent != null){
+                pMaterial.color.r = cent/4000.0;
+                pMaterial.color.g = cent/4000.0;
+            } else {
+                pMaterial.color.r = .5;
+                pMaterial.color.g = .5;
+            }
+
+            if(particle.x < -200) {
+                particle.x = 200;
+                particle.velocity.x = 0;
+            } else if (particle.x > 200) {
+                particle.x = -200;
+                particle.velocity.x = 0;
+            }
             if(particle.y < -200) {
                 particle.y = 200;
                 particle.velocity.y = 0;
+            } else if (particle.y > 200) {
+                particle.y = -200;
+                particle.velocity.y = 0;
+            }
+            if(particle.z < -200) {
+                particle.z = 200;
+                particle.velocity.z = 0;
+            } else if (particle.z > 200) {
+                particle.z = -200;
+                particle.velocity.z = 0;
             }
 
-            particle.velocity.y -= Math.random() * .1;
+
+            //particle.velocity.y -= Math.random() * .1;
+
+            // add acceleration
+
+            particle.acceleration = new THREE.Vector3(Math.random()*2 - 1, Math.random()*2 -1, Math.random()*2 - 1);
+
+            particle.acceleration.normalize();
+
+            if(rms != null)
+                particle.acceleration.multiplyScalar(rms);
+            else
+                particle.acceleration.multiplyScalar(.01);
+
+            particle.velocity.add(particle.acceleration);
 
             // add velocity
             particle.add(

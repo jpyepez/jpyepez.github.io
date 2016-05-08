@@ -2,7 +2,7 @@ import optparse
 from pythonosc import osc_message_builder
 from pythonosc import udp_client
 
-client = udp_client.UDPClient("127.0.0.1", 7400)
+client = udp_client.UDPClient("127.168.0.5", 7400)
 print(client)
 
 m = osc_message_builder.OscMessageBuilder(address = "/test")
