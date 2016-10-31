@@ -11,6 +11,7 @@ function setup() {
     createCanvas(640, 480); 
     colorMode(HSB, 360, 100, 100);
     background(360, 0, 100);
+    cursor(HAND);
 
     // Initialize system
     walker_system = new Walker_Sys(10);
