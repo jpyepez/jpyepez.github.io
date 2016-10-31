@@ -23,7 +23,7 @@ function preload() {
 
 function setup() {
     createCanvas(800, 600);
-    noCursor();
+    cursor(HAND);
 
     // Populate palette
     palette = ['#E8A6D6', '#753687', '#5884B5', '#38336B', '#0A1B35'];
