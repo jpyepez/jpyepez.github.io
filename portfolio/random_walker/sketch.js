@@ -109,3 +109,6 @@ function translateVec(vec) {
     translate(vec.x, vec.y);
 }
 
+function mouseReleased() {
+    setup();
+}

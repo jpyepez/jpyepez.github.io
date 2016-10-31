@@ -314,3 +314,7 @@ function addAlpha(col, alpha) {
 function draw_bg() {
     background(bg, 0, 0);
 }
+
+function mouseReleased() {
+    setup();
+}
