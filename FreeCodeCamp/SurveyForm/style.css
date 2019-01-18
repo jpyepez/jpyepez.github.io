@@ -1,0 +1,141 @@
+/* common styles */
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color:  #70ABAF !important;
+    color: #705D56;
+}
+
+/* end of common styles */
+
+/* form styles */
+
+h1 {
+    margin: 2rem 1.5rem 1rem;
+    color: #32292F;
+}
+
+p {
+    margin: 0 1.5rem;
+}
+
+fieldset {
+    min-width: 18rem;
+    margin: 1.5rem;
+    border-color: #99E1D9;
+}
+
+legend {
+    background-color: #99E1D988;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    box-shadow: 0.5px 0.5px 1px 0px #00000088 !important;
+    color: #32292F;
+}
+
+div#form-div {
+    display: flex !important;
+    flex-direction: column;
+}
+
+div.input {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 1rem;
+}
+
+input[type=text], input[type=email], input[type=number] {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    outline: none;
+}
+
+input[type=number] {
+    box-shadow: -0.125px -0.125px 0px 0px #00000088;
+}
+
+label {
+    min-width: 4rem;
+}
+
+#number {
+    width: 10rem;
+}
+
+input[required] + label:after {
+    content: " *";
+    color: red;
+}
+
+div.question {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    margin: 1rem 1rem;
+}
+
+.q-action {
+    margin: 0.25rem 0;
+}
+
+select {
+    box-shadow: 0.5px 0.5px 1px 0px #00000088 !important;
+}
+
+input[type=radio] + label,
+input[type=checkbox] + label {
+    margin: 0 1.5rem 0 0.25rem;
+}
+
+.q-action + label {
+    margin: 0 0 0.75rem 0;
+}
+
+.q-action + p {
+    margin: 1rem 0 0.75rem 0;
+}
+
+#textarea-wrapper {
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    min-width: 14rem;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+
+    box-shadow: -1px -1px 1px 0px #00000088 !important;
+}
+
+#submitWrapper {
+    width: 95%;
+    height: 3rem;
+    margin: 2rem 0;
+    min-width: 18rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#submit {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-color: #99E1D9;
+    font-size: 1.5rem;
+    padding: 0;
+    box-shadow: 2px 2px 1px 1px #70ABAF88;
+    color: #32292F;
+}
+
+/* end of form styles */

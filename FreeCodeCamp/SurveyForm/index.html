@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FreeCodeCamp Survey Form </title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css' />
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <main class="ui raised container segment">
+        <h1 id="title">Digital Arts Survey</h1>
+        <p id="description">This is a survey about how involved you are in the digital arts. Please answer the following questions:</p>
+        <div id="form-div" class="ui container">
+            <form action="" id="survey-form">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <div class="input">
+                        <input type="text" class="ui input" name="" id="name" placeholder="Type your name" required>
+                        <label for="name" id="name-label">Name</label>
+                    </div>
+
+                    <div class="input">
+                        <input type="email" class="ui input" name="" id="email" placeholder="Type your email" required>
+                        <label for="email" id="email-label">Email</label>
+                    </div>
+
+                    <div class="input">
+                        <input type="number" class="ui input" name="" id="number" min=18 max=99 placeholder="Age">
+                        <label for="number" id="number-label">Age</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Survey Questions</legend>
+                    
+                    <div class="question">
+                        <div class="q-action">
+                            <select name="" id="dropdown" class="ui selection dropdown">
+                                <option value="" style="display: none;">Select one...</option>
+                                <option value="0">No Experience</option>
+                                <option value="1">Enthusiast</option>
+                                <option value="2">Student</option>
+                                <option value="3">Professional</option>
+                            </select>
+                        </div>
+                        <label for="dropdown">What is your experience in
+                            digital art?</label>
+                    </div>
+
+                    <div class="question">
+                        <div class="q-action">
+                            <input type="radio" name="radio" id="never" value="0">
+                            <label for="never">Never</label>
+                        </div>
+                        <div class="q-action">
+                            <input type="radio" name="radio" id="sometimes" value="1">
+                            <label for="sometimes">Sometimes</label>
+                        </div>
+                        <div class="q-action">
+                            <input type="radio" name="radio" id="often" value="2">
+                            <label for="often">Often</label>
+                        </div>
+                        <div class="q-action">
+                            <input type="radio" name="radio" id="always" value="3" checked>
+                            <label for="always">Always</label>
+                        </div>
+                        <p>How often do you purchase digital artworks?</p>
+                    </div>
+
+                    <div class="question">
+                        <div class="q-action">
+                            <input type="checkbox" id="printed" name="printed" value="0">
+                            <label for="printed"> Printed Artworks </label>
+                        </div>
+                        <div class="q-action">
+                            <input type="checkbox" id="drawing" name="drawing" value="1">
+                            <label for="drawing">Digital Drawing</label>
+                        </div>
+                        <div class="q-action">
+                            <input type="checkbox" id="audio" name="audio" value="2">
+                            <label for="audio">Audio</label>
+                        </div>
+                        <div class="q-action">
+                            <input type="checkbox" id="visuals" name="visuals" value="3">
+                            <label for="visuals">Visuals</label>
+                        </div>
+                        <div class="q-action">
+                            <input type="checkbox" id="digifab" name="digifab" value="4">
+                            <label for="digifab">Digital Fabrications</label>
+                        </div>
+                        <div class="q-action">
+                            <input type="checkbox" id="videogames" name="videogames" value="5">
+                            <label for="videogames">Video Games</label>
+                        </div>
+                        <div class="q-action">
+                            <input type="checkbox" id="physcomp" name="physcomp" value="6">
+                            <label for="physcomp">Physical Computing</label>
+                        </div>
+                        <p>What type of digital artworks are you familiar with?</p>
+                    </div>
+
+                    <div class="ui form question">
+                        <div id="textarea-wrapper" class="q-action">
+                            <textarea></textarea>
+                        </div>
+                        <p>Comments/Suggestions</p>
+                    </div>
+
+                </fieldset>
+                <div id="submitWrapper" class="ui container" >
+                    <button id="submit" class="ui primary button" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+
+</html>
