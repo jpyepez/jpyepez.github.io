@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FCC Product Page</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <main class="ui container fluid">
+
+        <header id="header" class="ui menu fixed">
+
+            <div id="logo-wrapper" class="header item">
+                <img id="header-img" alt="logo" src="assets/coffee_pot.png"></img>
+            </div>
+            <div id="brand" class="ui container">
+                <h1 class="ui centered header">Snappy Brew</h1>
+            </div>
+            <nav id="nav-bar" class="ui container fluid">
+                <a href="#our-coffee" class="item nav-link">
+                    <i class="coffee icon"></i>
+                    Our Coffee
+                </a>
+                <a href="#our-story" class="item nav-link">
+                    <i class="map icon"></i>
+                    Our Story
+                </a>
+                <a href="#pricing" class="item nav-link">
+                    <i class="dollar sign icon"></i>
+                    Pricing
+                </a>
+            </nav>
+        </header>
+        <div id="content" class="ui basic segment">
+            <section id="hero">
+                <div id="hero-content">
+                    <h2>In the mood for coffee...</h2>
+                    <p>Snappy Coffee brings world-class quality beans to your door.</p>
+                </div>
+            </section>
+            <section id="our-coffee">
+                <div>
+                    <h3>Amazing Beans, Every Day...</h3>
+                    <p>The Snappy Mountains hide the secret to a unique roast of bean that has proved to be more fresh,
+                        tasty, and
+                        intense than any other. Our family of career-trained professionals in the coffee business will
+                        bring you
+                        the <strong>best coffee</strong>, and we guarantee that every bean will be inspected carefully
+                        by one of us. We take coffee
+                        <strong>seriously</strong>, and we hope you will join us so you can see that we mean business.
+
+                        We offer multiple subscription plans to meet your needs, and our VIP Club members will
+                        experience an unparalleled coffee lifestyle. <strong>Give it a try!</strong></p>
+                </div>
+            </section>
+            <section id="our-story">
+                <div>
+                    <h3>Our Coffee's Rich History and Strong Tradition...</h3>
+                    <video id="video" src="assets/coffee_video.mp4" controls></video>
+                </div>
+            </section>
+            <section id="pricing">
+                <div>
+                    <h3>Pricing</h3>
+                    <p>Find the plan that suits your coffee needs and we'll bring our quality coffee packs to the comfort of your own home:</p>
+                    <div id="plan-wrapper">
+                        <div class="plan">
+                            <h4>The Enthusiast</h4>
+                            <p class="price-tag">$20</p>
+                            <p class="period">/month</p>
+                            <ul>
+                                <li>Weekly pack of our delicious coffee</li>
+                                <li>10% discount on our merchandise</li>
+                                <li>Complimentary Snappy Mug!</li>
+                            </ul>
+                            <button class="ui brown button">Select</button>
+                        </div>
+                        <div class="plan">
+                            <h4>The Connoisseur</h4>
+                            <p class="price-tag">$40</p>
+                            <p class="period">/month</p>
+                            <ul>
+                                <li>Weekly pack of our premium-class coffee</li>
+                                <li>40% discount on our merchandise</li>
+                                <li>Free Snappy Cappuccino Machine!</li>
+                            </ul>
+                            <button class="ui brown button">Select</button>
+                        </div>
+                        <div class="plan">
+                            <h4>The Authority</h4>
+                            <p class="price-tag">$100</p>
+                            <p class="period">/month</p>
+                            <ul>
+                                <li>Weekly pack of our VIP Club coffee</li>
+                                <li>VIP Snappy Goodie Bag every week</li>
+                                <li>Snappy Coffee Variety Machine and Mugs!</li>
+                            </ul>
+                            <button class="ui brown button">Select</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer>
+                <div>
+                    <h3>Stay Updated!</h3>
+                    <p>Subscribe to our newsletter for exciting coffee news and promotions.</p>
+                    <form id="form" action="./submit.html">
+                        <div class="ui input">
+                            <input type="email" name="email" id="email" placeholder="Type your email address" required>
+                            <input type="submit" class="ui button" id="submit"></input>
+                        </div>
+                    </form>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
+<!--Photo by Mike Kenneally on Unsplash-->
