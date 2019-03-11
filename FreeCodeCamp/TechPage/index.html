@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FCC Technical Documentation Page</title>
+   <link rel="stylesheet" type="text/css" href="styles.css"> 
+</head>
+<body>
+
+    <nav id="navbar">
+        <header>&ltcanvas&gt<br>The Graphics Canvas Element </header>
+        <ul></ul>
+    </nav>
+
+    <main id="main-doc">
+        <section class="main-section">
+            <header>HTML Canvas Element</header>
+            <p>Use the HTML &ltcanvas&gt element with either the canvas scripting API or the WebGL API to draw graphics
+                and animations.</p>
+        </section>
+        <section class="main-section">
+            <header>Attributes</header>
+            <p>height
+                The height of the coordinate space in CSS pixels. Defaults to 150.</p>
+            <p>moz-opaque
+                Lets the canvas know whether or not translucency will be a factor. If the canvas knows there's no
+                translucency,
+                painting performance can be optimized. This is only supported by Mozilla-based browsers; use the
+                standardized
+                canvas.getContext('2d', { alpha: false }) instead.</p>
+            <p> width
+                The width of the coordinate space in CSS pixels. Defaults to 300. </p>
+        </section>
+        <section class="main-section">
+            <header>Usage Notes</header>
+            <p>Alternative contentSection
+                You may (and should) provide alternate content inside the &ltcanvas&gt block. That content will be
+                rendered both on older browsers that don't support canvas and in browsers with JavaScript disabled.</p>
+            <p> Required &lt/canvas&gt tagSection
+                Unlike the &ltimg&gt element, the &ltcanvas&gt element requires the closing tag (&lt/canvas&gt). </p>
+            <p> Sizing the canvas using CSS versus HTMLSection
+                The displayed size of the canvas can be changed using CSS, but if you do this the image is scaled during
+                rendering to fit the styled size, which can make the final graphics rendering end up being distorted.
+
+                It is better to specify your canvas dimensions by setting the width and height attributes directly on
+                the &ltcanvas&gt attributes, either directly in the HTML or by using JavaScript. </p>
+        </section>
+        <section class="main-section">
+            <header>Examples</header>
+            <p>This code snippet adds a canvas element to your HTML document. A fallback text is provided if a browser
+                is unable to render the canvas, or if can't read a canvas. Providing a useful fallback text or sub DOM
+                helps to make the the canvas more accessible.</p>
+            <div class="code-wrapper">
+                <code>
+                            <p>&lt<span class="tag">canvas</span> <span class="attribute">id</span>="<span class="value">canvas</span>" <span class="attribute">width</span>="<span class="value">300</span>" <span class="attribute">height</span>="<span class="value">300</span>"&gt</p>
+                                    <p class="indent">An alternative text describing what your canvas displays.</p>
+                            <p>&lt/<span class="tag">canvas</span>&gt</p>
+                    </code>
+            </div>
+            <p>Then in the JavaScript code, call HTMLCanvasElement.getContext() to get a drawing context and start
+                drawing onto the canvas:</p>
+            <div class="code-wrapper">
+                <code>
+                    <p>&lt<span class="tag">script</span>&gt</p>
+                        <p class="indent"><span class="type">var</span> canvas = document.<span class="function">getElementById</span>(<span class="string">'canvas'</span>);</p>
+                        <p class="indent"><span class="type">var</span> ctx = canvas.<span class="function">getContext</span>(<span class="string">'2d'</span>);</p>
+                        <p class="indent">ctx.<span class="function">fillStyle</span> = <span class="string">'green'</span>;</p>
+                        <p class="indent">ctx.<span class="function">fillRect</span>(<span class="numVal">10</span>, <span class="numVal">10</span>, <span class="numVal">100</span>, <span class="numVal">100</span>);</p>
+                    <p>&lt/<span class="tag">script</span>&gt</p>
+                </code>
+            </div>
+        </section>
+        <section class="main-section">
+            <header>Accessibility concerns</header>
+            <p>Alternative content
+                The &ltcanvas&gt element on its own is just a bitmap and does not provide information about any drawn
+                objects. Canvas content is not exposed to accessibility tools like semantic HTML is. In general, you
+                should avoid using canvas in an accessible website or app. The following guides can help to make it more
+                accessible.</p>
+        </section>
+        <section class="main-section">
+            <header>More Examples</header>
+            <p>This code snippet adds a canvas element to your HTML document. A fallback text is provided if a browser is unable to render the canvas, or if can't read a canvas. Providing a useful fallback text or sub DOM helps to make the the canvas more accessible.</p>
+            <div class="code-wrapper">
+                <code>
+                    <p>&lt<span class="tag">canvas</span> <span class="attribute">id</span>="<span class="value">canvas</span>" <span class="attribute">width</span>="<span class="value">300</span>" <span class="attribute">height</span>="<span class="value">300</span>"&gt</p>
+                        <p class="indent">More placeholder text describing what your canvas displays.</p> 
+                    <p>&lt/<span class="tag">canvas</span>&gt</p>
+                </code>
+            </div>
+
+            <p>You may try slight variations, and it's worth to try mixing colors such as:</p>
+            <ul>
+                <li>Red</li>
+                <li>Green</li>
+                <li>Blue</li>
+                <li>Cyan</li>
+                <li>Maroon</li>
+            </ul>
+
+            <div class="code-wrapper">
+                <code>
+                    <p>&lt<span class="tag">script</span>&gt</p>
+                        <p class="indent"><span class="type">var</span> canvas = document.<span class="function">getElementById</span>(<span class="string">'canvas'</span>);</p>
+                        <p class="indent"><span class="type">var</span> ctx = canvas.<span class="function">getContext</span>(<span class="string">'2d'</span>);</p>
+                        <p class="indent">ctx.<span class="function">fillStyle</span> = <span class="string">'blue'</span>;</p>
+                        <p class="indent">ctx.<span class="function">fillRect</span>(<span class="numVal">10</span>, <span class="numVal">10</span>, <span class="numVal">100</span>, <span class="numVal">100</span>);</p>
+                    <p>&lt/<span class="tag">script</span>&gt</p>
+                </code>
+            </div>
+
+            <p>Or perhaps:</p>
+
+            <div class="code-wrapper">
+                <code>
+                    <p>&lt<span class="tag">script</span>&gt</p>
+                        <p class="indent"><span class="type">var</span> canvas = document.<span class="function">getElementById</span>(<span class="string">'canvas'</span>);</p>
+                        <p class="indent"><span class="type">var</span> ctx = canvas.<span class="function">getContext</span>(<span class="string">'2d'</span>);</p>
+                        <p class="indent">ctx.<span class="function">fillStyle</span> = <span class="string">'red'</span>;</p>
+                        <p class="indent">ctx.<span class="function">fillRect</span>(<span class="numVal">10</span>, <span class="numVal">10</span>, <span class="numVal">100</span>, <span class="numVal">100</span>);</p>
+                    <p>&lt/<span class="tag">script</span>&gt</p>
+                </code>
+            </div>
+
+
+        </section>
+    </main>
+    <script src="index.js"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+
+</html>
