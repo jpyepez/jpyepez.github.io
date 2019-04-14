@@ -1,0 +1,256 @@
+/* common styles */
+
+:root {
+    --navbar-height: 6rem; 
+    --footer-height: 11rem;
+
+    --purple-darkest: #0A0610;
+    --purple-dark: #18063A;
+    --purple-medium: #2D1657;
+    --purple-light: #8C7AAE;
+    --purple-lighter: #e2daf2;
+    --violet-dark: #2E0138;
+    --violet-medium: #481054;
+    --violet-light: #ae99d8;
+    --blue-dark: #080F3A;
+    --blue-medium: #182157;
+    --blue-light: #929bcc;
+
+}
+
+html {
+    height: 100%;
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+h1, h2, h5 {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+    font-size: 4.8rem;
+    font-weight: 700;
+    color: white;
+}
+
+h2 {
+    width: 100%;
+    padding: 3rem 0;
+
+    font-size: 3.6rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--purple-medium);
+}
+
+h5 {
+    font-size: 2rem;
+    color: var(--purple-medium);
+}
+
+p {
+    font-size: 1.4rem;
+}
+
+
+/* end of common styles */
+
+/* navbar styles*/
+navbar {
+    padding-left: 4rem !important;
+    height: var(--navbar-height);
+    z-index: 10;
+
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.6);
+}
+
+.bg-dark {
+    background-color: var(--purple-darkest) !important;
+}
+
+
+.navbar-dark .navbar-brand {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem;
+    padding: 0 2rem 0;
+
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.nav-item {
+    padding: 0 0.75rem;
+    font-size: 1.6rem;
+}
+
+.navbar-dark .navbar-nav .active>.nav-link {
+    color: var(--purple-lighter);
+}
+
+
+/* end of navbar styles*/
+
+
+/* welcome section styles */
+
+#welcome-section {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    position: relative;
+
+    background-image: linear-gradient(0deg, 
+                                    rgba(32,13,103,0.6) 0%, 
+                                    rgba(4,0,15,1) 100%), 
+                                    url("assets/donut.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 4px 6px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+#welcome-section p {
+    font-size: 2.8rem;
+    color: var(--violet-light);
+}
+
+/* end of welcome section styles */
+
+/* project styles */
+
+#projects {
+    padding: var(--navbar-height) 0 calc(1.5*var(--navbar-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    background-color: var(--purple-lighter);
+}
+
+#project-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    justify-items: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card {
+    margin: 2rem;
+    padding: 3px;
+    width: 28rem !important;
+    height: 37.5rem !important;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+    transition-duration: 0.5s;
+    border: 0.5px solid var(--purple-dark);
+}
+
+.card:hover {
+    box-shadow: 0 2px 8px 4px rgba(0, 0, 0, 0.3);
+}
+
+.card-img-top {
+    height: 20rem;
+    object-position: 0% 0%;
+}
+
+.card-bar {
+    margin: 1rem 0;
+    height: 0.25rem;
+    background-color: var(--violet-medium);
+}
+
+.card-body {
+    padding: 0 1rem 1em;
+}
+
+.card-title {
+    margin-bottom: 0;
+    padding: 0.25rem 1rem;
+}
+
+.card-body > p{
+    padding: 1rem;
+}
+
+
+
+
+/* end of project styles */
+
+/* contact styles */
+#contact {
+    height: calc(100vh - var(--footer-height));
+    padding: var(--navbar-height) 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+
+    background-image: linear-gradient(180deg, 
+                                    rgba(32,13,103, 1) 0%, 
+                                    rgba(4,0,15,1) 100%);
+
+    box-shadow: 0 -2px 8px 4px rgba(0, 0, 0, 0.3);
+}
+
+#contact div {
+    padding: 3rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+#contact h2 {
+    color: var(--violet-light);
+}
+
+i {
+    font-size: 5rem;
+    margin: 1.5rem; 
+}
+
+.fa-instagram {
+    color: #f40083;
+}
+
+.fa-facebook {
+    color: #3B5998;
+}
+
+.fa-twitter {
+    color: #55ACEE;
+}
+
+.fa-github {
+    color: var(--blue-light);
+}
+
+/* end of contact styles */
+
+/* footer styles */
+
+footer {
+    height: var(--footer-height);
+    background-color: var(--purple-darkest);
+}
+
+footer p {
+    margin: 0;
+    padding: 4rem 2rem;
+
+    text-align: right;
+    color: var(--blue-light);
+}
+
+/* end of footer styles */

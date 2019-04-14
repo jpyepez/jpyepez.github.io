@@ -1,21 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Projects Subdomain</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet">
+    <title>JP's Web Portfolio</title>
 </head>
-
 <body>
-    <h1>JP Yepez</h1>
-    <h2>Projects Page</h2>
-    <ul>
-        <li><a href="https://projects.jpyepez.com/EmojiP5/">Top 100 Emoji on Twitter</a></li>
-        <li><a href="https://projects.jpyepez.com/WikiClassifier/">WikiClassifier </a></li>
-        <li><a href="https://projects.jpyepez.com/BecomeHoratio/">BecomeHoratio </a></li>
-    </ul>
-</body>
+    <navbar id="navbar" class="navbar navbar-expand fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">JP's Portfolio</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
+            <li class="nav-item active">
+                <a class="nav-link" href="#welcome-section">About</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#projects">Projects</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+            </li>
+        </ul>
+    </navbar>
+
+    <section id="welcome-section">
+        <h1>JP Yepez</h1>
+        <p>New Media Artist</p>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div id="project-wrapper">
+    
+            <div class="card project-tile" style="width: 18rem;">
+                <a href="https://projects.jpyepez.com/EmojiP5/">
+                    <img src="assets/emoji.png" class="card-img-top" alt="...">
+                </a>
+
+                <div class="card-body">
+                    <div class="card-bar"></div>
+                    <h5 class="card-title">Top 100 Emoji</h5>
+                    <p class="card-text">Creative data visualization app that shows the most common emoji on Twitter in real-time.</p>
+                </div>
+            </div>
+    
+            <div class="card project-tile" style="width: 18rem;">
+                <a href="https://projects.jpyepez.com/WikiClassifier/">
+                    <img src="assets/wiki.png" class="card-img-top" alt="...">
+                </a>
+
+                <div class="card-body">
+                    <div class="card-bar"></div>
+                    <h5 class="card-title">Wiki Classifier</h5>
+                    <p class="card-text">MobileNet image classification app that displays and labels images from Wikipedia.</p>
+                </div>
+            </div>
+    
+            <div class="card project-tile" style="width: 18rem;">
+                <a href="https://projects.jpyepez.com/BecomeHoratio/">
+                    <img src="assets/become.jpg" class="card-img-top" alt="...">
+                </a>
+
+                <div class="card-body">
+                    <div class="card-bar"></div>
+                    <h5 class="card-title">Become Horatio</h5>
+                    <p class="card-text">CSI: Miami web toy. Uses image classification models for interaction using real-time camera input.</p>
+                </div>
+            </div>
+    
+            <div class="card project-tile" style="width: 18rem;">
+                <a href="https://projects.jpyepez.com/FreeCodeCamp/TributePage/">
+                    <img src="assets/vera.png" class="card-img-top" alt="...">
+                </a>
+
+                <div class="card-body">
+                    <div class="card-bar"></div>
+                    <h5 class="card-title">Tribute Page Demo</h5>
+                    <p class="card-text">Responsive web design demo and tribute page for media artist Vera Molnár.</p>
+                </div>
+            </div>
+    
+            <div class="card project-tile" style="width: 18rem;">
+                <a href="https://projects.jpyepez.com/FreeCodeCamp/SurveyForm/">
+                    <img src="assets/survey.png" class="card-img-top" alt="...">
+                </a>
+
+                <div class="card-body">
+                    <div class="card-bar"></div>
+                    <h5 class="card-title">Survey Form Demo</h5>
+                    <p class="card-text">Survey page demo. Responsive web design for front-end development.</p>
+                </div>
+            </div>
+
+            <div class="card project-tile" style="width: 18rem;">
+                <a href="https://projects.jpyepez.com/FreeCodeCamp/ProductPage/">
+                    <img src="assets/coffee.png" class="card-img-top" alt="...">
+                </a>
+
+                <div class="card-body">
+                    <div class="card-bar"></div>
+                    <h5 class="card-title">Product Page Demo</h5>
+                    <p class="card-text">"Snappy Brew Coffee" product demo page. Responsive web design for front-end development.</p>
+                </div>
+            </div>
+
+            <div class="card project-tile" style="width: 18rem;">
+                <a href="https://projects.jpyepez.com/FreeCodeCamp/TechPage/">
+                    <img src="assets/techpage.png" class="card-img-top" alt="...">
+                </a>
+
+                <div class="card-body">
+                    <div class="card-bar"></div>
+                    <h5 class="card-title">Tech Page Demo</h5>
+                    <p class="card-text">Tech page and documentation demo page. Responsive web design for front-end development.</p>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        
+        <div>
+            <!--Instagram-->
+            <a href="https://www.instagram.com/jpyepez/" target="_blank" id="instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <!--Facebook-->
+            <a href="https://www.facebook.com/jpyepezartist/" target="_blank" id="facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <!--Twitter-->
+            <a href="https://twitter.com/jpyepezartist?lang=en" target="_blank" id="twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <!--GitHub-->
+            <a href="https://github.com/jpyepez" target="_blank" id="profile-link">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright © 2019. All Rights Reserved.</p>
+    </footer>
+
+
+    <!-- Bootstrap Optional JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+</body>
 </html>
