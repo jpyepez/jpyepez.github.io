@@ -92,7 +92,7 @@ navbar {
 }
 
 .navbar-nav {
-    overflow-x: scroll;
+    overflow-x: none;
 }
 
 .nav-item {
@@ -272,4 +272,10 @@ footer p {
 
 /* end of footer styles */
 
+@media all and (max-width: 480px) {
+
+    .navbar-nav {
+        overflow-x: scroll;
+    }
+}
 
