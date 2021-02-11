@@ -91,10 +91,6 @@ navbar {
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
 }
 
-.navbar-nav {
-    overflow-x: none;
-}
-
 .nav-item {
     padding: 0 0.75rem;
     font-size: 1.6rem;
@@ -275,7 +271,7 @@ footer p {
 @media all and (max-width: 480px) {
 
     .navbar-nav {
-        overflow-x: scroll;
+        display: none;
     }
 }
 
